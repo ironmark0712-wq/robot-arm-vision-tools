@@ -1,0 +1,25 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>static_conversion_summary — Robot Feedback Inspector</title><style>body{font:16px/1.5 system-ui,sans-serif;max-width:1000px;margin:32px auto;padding:0 20px;color:#172033;background:#f8fafc}h1{line-height:1.2}section{background:white;padding:20px;margin:20px 0;border:1px solid #dbe3ee;border-radius:10px}li{margin:14px 0}.review{border-left:4px solid #d97706;padding-left:12px}.info{border-left:4px solid #2563eb;padding-left:12px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #dbe3ee;padding:8px;text-align:left;overflow-wrap:anywhere}code,pre{font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}svg{width:100%;height:auto}.note{color:#475569}</style><h1>Robot Feedback Inspector</h1><p>Local release candidate · saved data only</p><p><strong>static_conversion_summary</strong> · real_report_summary · review required: false</p><p class="note">Native position counts are not torque, angle, millimetres, or gripping force. This page does not certify hardware safety, successful grasping, or a complete task.</p><section><h2>Observed evidence</h2><p>No action trace is bundled for this report-summary case.</p><pre>{
+  &quot;rows&quot;: 27,
+  &quot;video_frames&quot;: 27,
+  &quot;raw_frames&quot;: 24,
+  &quot;raw_states&quot;: 45,
+  &quot;quality_flagged_rows&quot;: 0,
+  &quot;max_image_offset_s&quot;: 0.06111017799999985,
+  &quot;max_state_interpolation_gap_s&quot;: 0.11933304999999983,
+  &quot;training_ready&quot;: false,
+  &quot;success&quot;: null,
+  &quot;outcome_source&quot;: &quot;not_yet_labelled&quot;,
+  &quot;state_units&quot;: &quot;native_servo_counts (five arm joints and one gripper)&quot;,
+  &quot;action_definition&quot;: &quot;next_resampled_observation_state; last source observation omitted&quot;,
+  &quot;command_count&quot;: 0,
+  &quot;recording_complete&quot;: true,
+  &quot;check_only&quot;: true,
+  &quot;controller_entry_called&quot;: false
+}</pre></section><section><h2>Inspection findings</h2><ul><li class="info"><strong>RECORDING_WITHOUT_COMMANDS</strong><p>The recording contains zero commands. Stationary feedback in this case is not treated as an actuator fault.</p></li><li class="info"><strong>REPORTED_ALIGNMENT_CHECKS_PASSED</strong><p>The source conversion report flags zero aligned rows. This inspector summarizes that report; it does not rerun conversion or decode video.</p></li><li class="info"><strong>NOT_TRAINING_READY</strong><p>The source explicitly marks training_ready=false. Zero quality flags and recording_complete=true do not override that status.</p></li><li class="info"><strong>TASK_OUTCOME_UNKNOWN</strong><p>The source task outcome is unlabelled/unknown; no successful robot task is inferred.</p></li></ul></section><section><h2>Original source checksums</h2><p>The checksum identifies the original file used for extraction. It is not a digital signature or independent authentication.</p><table><thead><tr><th>Role</th><th>Source file</th><th>SHA-256</th></tr></thead><tbody><tr><td>original conversion report</td><td>conversion_report.json</td><td><code>ce56982f27f58dceab1e737e5b3221197487d2ed460ae8d93b555414e1c4c44a</code></td></tr><tr><td>original recording metadata</td><td>episode_metadata.json</td><td><code>f83cca7dcebfa41c7171d8de004aeb797cb59c54fd5870f8bca9adcbb8812c28</code></td></tr></tbody></table></section><section><h2>Field mapping</h2><pre>{
+  &quot;conversion_summary&quot;: &quot;same-named selected fields from conversion_report.json; no conversion rerun&quot;,
+  &quot;recording_summary&quot;: &quot;same-named selected fields from episode_metadata.json&quot;,
+  &quot;recording_summary.counts&quot;: &quot;episode_metadata.json.counts (raw image, state and command counts)&quot;,
+  &quot;time&quot;: &quot;conversion offsets are seconds on host-receipt timelines, not hardware synchronization&quot;,
+  &quot;action&quot;: &quot;conversion_report.json.action_definition; next resampled actual state is not the issued command&quot;,
+  &quot;scope&quot;: &quot;stationary check-only recording; full images, video and dataset are not bundled&quot;
+}</pre></section><p class="note">Real samples are limited case studies. Synthetic tests are separate. No new robot experiment, model training, or algorithm-performance claim is made.</p></html>

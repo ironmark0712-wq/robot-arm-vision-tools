@@ -1,0 +1,61 @@
+{
+  "schema_version": "robot-feedback-inspector.case.v1",
+  "case_id": "static_conversion_summary",
+  "case_type": "conversion_summary",
+  "data_kind": "real_report_summary",
+  "sources": [
+    {
+      "file_name": "conversion_report.json",
+      "sha256": "ce56982f27f58dceab1e737e5b3221197487d2ed460ae8d93b555414e1c4c44a",
+      "role": "original conversion report"
+    },
+    {
+      "file_name": "episode_metadata.json",
+      "sha256": "f83cca7dcebfa41c7171d8de004aeb797cb59c54fd5870f8bca9adcbb8812c28",
+      "role": "original recording metadata"
+    }
+  ],
+  "source_field_map": {
+    "conversion_summary": "same-named selected fields from conversion_report.json; no conversion rerun",
+    "recording_summary": "same-named selected fields from episode_metadata.json",
+    "recording_summary.counts": "episode_metadata.json.counts (raw image, state and command counts)",
+    "time": "conversion offsets are seconds on host-receipt timelines, not hardware synchronization",
+    "action": "conversion_report.json.action_definition; next resampled actual state is not the issued command",
+    "scope": "stationary check-only recording; full images, video and dataset are not bundled"
+  },
+  "recording_summary": {
+    "check_only": true,
+    "controller_entry_called": false,
+    "counts": {
+      "frames": 24,
+      "states": 45,
+      "commands": 0
+    },
+    "recording_complete": true,
+    "physical_grasp_or_place_inferred_from_program": false
+  },
+  "conversion_summary": {
+    "result": "V3_NATIVE_READ_AND_VIDEO_COUNT_VERIFIED",
+    "training_ready": false,
+    "originals_modified": false,
+    "rows": 27,
+    "video_frames": 27,
+    "raw_frames": 24,
+    "raw_states": 45,
+    "fps": 10,
+    "quality_flagged_rows": 0,
+    "max_image_offset_s": 0.06111017799999985,
+    "max_state_interpolation_gap_s": 0.11933304999999983,
+    "outcome_source": "not_yet_labelled",
+    "success": null,
+    "state_units": "native_servo_counts (five arm joints and one gripper)",
+    "action_definition": "next_resampled_observation_state; last source observation omitted",
+    "alignment_policy": {
+      "grid_origin_raw_time_s": 1.7,
+      "last_observation_dropped_no_next_action": true,
+      "max_image_offset_s": 0.2,
+      "max_state_interpolation_gap_s": 0.5,
+      "max_state_read_duration_s": 0.5
+    }
+  }
+}

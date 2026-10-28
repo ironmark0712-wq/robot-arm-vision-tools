@@ -1,0 +1,45 @@
+{
+  "report_schema": "robot-feedback-inspector.report.v1",
+  "case_id": "empty_grasp_13",
+  "case_type": "execution_excerpt",
+  "data_kind": "real_excerpt",
+  "sources": [
+    {
+      "file_name": "report.json",
+      "sha256": "e64467dc8702a6c4eec10460be44d7e6d19681980486ff097b7496dd96ed398e",
+      "role": "original execution report"
+    }
+  ],
+  "scope": "Offline inspection of saved excerpts; no new robot experiment or hardware diagnosis.",
+  "findings": [
+    {
+      "code": "CLOSURE_FEEDBACK_UNCHANGED",
+      "level": "review",
+      "message": "Closing goals changed, but recorded gripper feedback showed no displacement. Review the observation and feedback; this does not identify a motor, friction, torque, or contact cause."
+    },
+    {
+      "code": "LIFT_WITHOUT_GRASP_VERIFICATION",
+      "level": "review",
+      "message": "The excerpt enters a lift-labelled stage while the source report does not confirm grasping. A stage name is not proof of physical lift distance."
+    },
+    {
+      "code": "TASK_RESULT_NOT_INFERRED",
+      "level": "info",
+      "message": "Commands and completed stage labels do not establish physical grasp or placement success."
+    }
+  ],
+  "metrics": {
+    "closure_sample_count": 12,
+    "closure_goal_min_raw": 2006,
+    "closure_goal_max_raw": 2012,
+    "closure_actual_min_raw": 2014,
+    "closure_actual_max_raw": 2014,
+    "closure_duration_s": 1.2724889969999822,
+    "position_unit": "native_servo_position_counts",
+    "stages_in_excerpt": {
+      "CLOSE_GENTLY": 12,
+      "LIFT_50MM": 1
+    }
+  },
+  "review_required": true
+}
